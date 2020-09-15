@@ -7,7 +7,7 @@
 <form action="/questions/{{$question->id}}/answers" method="POST">
   @csrf
   <div class="form-group my-5">
-    <label for="value">Do you know the answer?</label>
+    <label for="value">Do you know the answer? Don't forget to include sources if needed.</label>
     <div class="input-group mb-3">
       <textarea class="form-control" id="answer" name="value" rows="3">{{old('value')}}</textarea>
 
