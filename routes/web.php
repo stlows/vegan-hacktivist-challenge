@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+  $question = 'Why do humans drink cow\'s milk?';
+  return view('welcome', [
+    'question' => $question
+  ]);
 });
