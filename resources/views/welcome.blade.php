@@ -8,8 +8,8 @@
     <div class="form-group my-5">
       <label for="question">Start by entering a question...</label>
       <div class="input-group mb-3">
-        <input type="text" name="value" class="form-control" placeholder="{{ $question }}" aria-label="{{$question}}"
-          aria-describedby="button-addon2" value="{{ old('value') }}">
+        <input type="text" name="value" class="form-control" placeholder="{{ $sampleQuestion }}"
+          aria-label="{{$sampleQuestion}}" aria-describedby="button-addon2" value="{{ old('value') }}">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
             Ask <svg class="ml-1" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"

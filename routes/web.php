@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Question;
+use App\Models\ExampleQuestion;
 use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\AnswersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,10 @@ use App\Http\Controllers\QuestionsController;
 */
 
 Route::get('/', function(){
-  $question = 'Why do humans drink cow\'s milk?';
+  $sampleQuestion = ExampleQuestion::all()->random();
   $questions = Question::latest()->paginate(5);
   return view('welcome', [
-    'question' => $question,
+    'sampleQuestion' => $sampleQuestion->value,
     'questions' => $questions
   ]);
 });
@@ -27,3 +29,4 @@ Route::get('/', function(){
 Route::get('/questions', [QuestionsController::class, 'index'])->name('questions.index');
 Route::get('/questions/{question}', [QuestionsController::class, 'show'])->name('questions.show');
 Route::post('/questions', [QuestionsController::class, 'store']);
+Route::post('/questions/{question}/answers', [AnswersController::class, 'store']);
