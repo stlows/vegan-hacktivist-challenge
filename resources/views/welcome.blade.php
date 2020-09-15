@@ -35,15 +35,22 @@
   </div>
   <div class="my-4">
     <h2 class="mb-3">Questions</h2>
+    <p class="text-muted">From newest to oldest</p>
     <div class="list-group my-3">
-      @foreach($questions as $q)
-      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
-        href="{{ route('questions.show', $q->id) }}">
-        {{$q->value}}
-        <span class="badge badge-primary badge-pill">{{$q->answers->count()}} answers</span>
+      @forelse($questions as $q)
+      <a class="list-group-item list-group-item-action" href="{{ route('questions.show', $q->id) }}">
+        <div class="d-flex justify-content-between align-items-center">
+          {{$q->value}}
+          <span class="badge badge-primary badge-pill">{{$q->answers->count()}} answers</span>
+        </div>
+        <div class="mt-1 text-right"><i>Created at: {{$q->created_at}}</i></div>
+
+      </a>
       </a>
 
-      @endforeach
+      @empty
+      <p>No questions here yet...</p>
+      @endforelse
     </div>
     {{ $questions->links() }}
   </div>

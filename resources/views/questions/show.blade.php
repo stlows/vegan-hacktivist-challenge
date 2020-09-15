@@ -22,10 +22,15 @@
 </form>
 <hr>
 <h2>Answers</h2>
+<p class="text-muted">From oldest to newest</p>
 <div class="list-group my-3">
-  @foreach($question->answers as $answer)
+  @foreach($question->answers->sortBy('created_at') as $answer)
   <li class="list-group-item">
-    {{$answer->value}}
+    <div class="d-flex justify-content-between align-items-center">
+      {{$answer->value}}
+      <div class="text-right"><i>Date answered: {{$answer->created_at}}</i></div>
+
+    </div>
   </li>
   @endforeach
 </div>

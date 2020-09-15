@@ -24,7 +24,7 @@ class StoreQuestion extends FormRequest
     public function rules()
     {
         return [
-          'value'=> ['required', 'unique:questions', 'min:5']
+          'value'=> ['required', 'unique:questions', 'min:5', 'ends_with:?']
         ];
     }
 
@@ -38,7 +38,8 @@ class StoreQuestion extends FormRequest
         return [
             'value.required' => 'Please enter a question.',
             'value.unique' => 'This question already exists, find it in the questions page.',
-            'value.min' => 'The question must be at least 5 caracters.'
+            'value.min' => 'The question must be at least 5 caracters.',
+            'value.ends_with' => 'The question must end with a ?'
         ];
     }
 

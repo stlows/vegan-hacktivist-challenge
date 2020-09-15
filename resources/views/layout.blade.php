@@ -9,7 +9,7 @@
 </head>
 
 <body class="antialiased">
-  <div class="container m-5">
+  <div class="container my-5">
     @yield('content')
   </div>
 
