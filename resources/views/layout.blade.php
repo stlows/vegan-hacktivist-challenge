@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/css/app.css">
-  <title>Vegan Q&A: You have the answers</title>
+  <title>Veganism Q&A</title>
 </head>
 
 <body class="antialiased">
-  <div class="container">
+  <div class="container m-5">
     @yield('content')
   </div>
 

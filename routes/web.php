@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Question;
+use App\Http\Controllers\QuestionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function(){
   $question = 'Why do humans drink cow\'s milk?';
+  $questions = Question::latest()->paginate(5);
   return view('welcome', [
-    'question' => $question
+    'question' => $question,
+    'questions' => $questions
   ]);
 });
+
+Route::get('/questions', [QuestionsController::class, 'index'])->name('questions.index');
+Route::get('/questions/{question}', [QuestionsController::class, 'show'])->name('questions.show');
+Route::post('/questions', [QuestionsController::class, 'store']);

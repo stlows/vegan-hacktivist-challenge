@@ -9,8 +9,16 @@ class Question extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['value'];
+
     public function answers()
     {
-      $this->hasMany(Answer::class);
+      return $this->hasMany(Answer::class);
     }
+
+    public function path()
+    {
+      return route('questions.show', $this);
+    }
+    
 }
